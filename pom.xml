@@ -12,13 +12,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.31.1</quarkus.platform.version>
+        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+        <quarkus.platform.version>999-SNAPSHOT</quarkus.platform.version>
         <skipITs>false</skipITs>
         <jacoco-version>0.8.14</jacoco-version>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
     </properties>
-
+    <repositories>
+        <repository>
+            <id>gitea</id>
+            <url>https://gitea.apps.wintern.at/api/packages/ckronberger/maven</url>
+        </repository>
+    </repositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
