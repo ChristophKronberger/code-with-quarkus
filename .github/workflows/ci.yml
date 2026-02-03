@@ -28,26 +28,26 @@ jobs:
         env:
           GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
         run: |
-            mkdir -p ~/.m2
-            cat > ~/.m2/settings.xml <<'EOF'
-            <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
-              <servers>
-                <server>
-                  <id>gitea</id>
-                  <configuration>
-                    <httpHeaders>
-                      <property>
-                        <name>Authorization</name>
-                        <value>token ${env.GITEA_TOKEN}</value>
-                      </property>
-                    </httpHeaders>
-                  </configuration>
-                </server>
-              </servers>
-            </settings>
-            EOF    
+               mkdir -p ~/.m2
+               cat > ~/.m2/settings.xml <<EOF
+               <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+                 <servers>
+                   <server>
+                     <id>gitea</id>
+                     <configuration>
+                       <httpHeaders>
+                         <property>
+                           <name>Authorization</name>
+                           <value>token ${env.GITEA_TOKEN}</value>
+                         </property>
+                       </httpHeaders>
+                     </configuration>
+                   </server>
+                 </servers>
+               </settings>
+              EOF    
 
       - name: Build (Linux)
         if: runner.os != 'Windows'
