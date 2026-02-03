@@ -47,7 +47,7 @@ jobs:
               </server>
             </servers>
           </settings>
-          OF    
+          EOF    
 
       - name: Build (Linux)
         if: runner.os != 'Windows'
