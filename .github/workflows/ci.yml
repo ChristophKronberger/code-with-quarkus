@@ -25,6 +25,7 @@ jobs:
           cache: maven
 
       - name: Write Maven settings.xml for Gitea
+        shell: bash
         env:
           GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
         run: |
@@ -40,7 +41,7 @@ jobs:
                   <httpHeaders>
                     <property>
                       <name>Authorization</name>
-                      <value>token \$GITEA_TOKEN</value>
+                      <value>token ${env.GITEA_TOKEN}</value>
                     </property>
                   </httpHeaders>
                 </configuration>
